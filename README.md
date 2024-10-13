@@ -70,7 +70,7 @@ We adjust power limits for the 2 devices, and record the average latency under d
 
 ## Code & Usage
 
-We provide HEXA-MoE implementations with both [Triton](./hexa_moe_triton/) and [CUDA](./hexa_moe_cuda/). The programming interface for both are the same:
+We provide HEXA-MoE implementations using both Triton and CUDA. The programming interface for both are the same:
 
 ```
     import torch.nn.functional as F
@@ -97,4 +97,4 @@ We provide HEXA-MoE implementations with both [Triton](./hexa_moe_triton/) and [
         x, cur_l_aux = self.cascaded_moe(depth_idx, x)
 ```
 
-We define all the FFNs/MoEs of a model in a single class to facilitate the pipeline-shared cache.
+We define all the FFN/MoE layers for an MoE model in a single class to facilitate the pipeline-shared cache.
